@@ -1,6 +1,7 @@
 from django.test import TestCase
 from taxi.models import Manufacturer, Driver, Car
 
+
 class ModelsTests(TestCase):
     def test_manufacturer_str(self):
         manufacturer = Manufacturer(name="Toyota", country="Japan")
@@ -15,5 +16,8 @@ class ModelsTests(TestCase):
         self.assertEqual(str(car), "Corolla")
 
     def test_create_driver_with_license_number(self):
-        driver = Driver.objects.create_user(username="janedoe", license_number="ABC123")
+        driver = Driver.objects.create_user(
+            username="janedoe",
+            license_number="ABC123"
+        )
         self.assertEqual(driver.license_number, "ABC123")
