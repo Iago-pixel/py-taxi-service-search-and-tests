@@ -129,8 +129,8 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
         qyeryset = Driver.objects.all()
         form = DriverSearchForm(self.request.GET)
         if form.is_valid():
-            return (
-                qyeryset.filter(username__icontains=form.cleaned_data["username"])
+            return qyeryset.filter(
+                username__icontains=form.cleaned_data["username"]
             )
         return qyeryset
 
